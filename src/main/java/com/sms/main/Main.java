@@ -47,8 +47,8 @@ public class Main {
         System.out.println("2. Update Student Details");
         System.out.println("3. View Student by ID");
         System.out.println("4. View All Students");
-        System.out.println("5. Fee Payment Update"); // Simplified update focused on Fee
-        System.out.println("6. Generate Student Summary"); // Detailed view
+        System.out.println("5. Fee Payment Update");
+        System.out.println("6. Generate Student Summary"); 
         System.out.println("7. Filter Students");
         System.out.println("8. Delete Student");
         System.out.println("9. Logout");
@@ -74,9 +74,7 @@ public class Main {
                 break;
             case 2:
                 if (role == User.Role.ADMIN)
-                    System.out.println("Feature: Update Student (Implement logic similar to Add)"); // Placeholder for
-                                                                                                    // brevity or full
-                                                                                                    // impl
+                    System.out.println("Feature: Update Student (Implement logic similar to Add)"); 
                 else
                     System.out.println("Access Denied: Admin only.");
                 break;
@@ -121,7 +119,7 @@ public class Main {
         System.out.println("\n--- ADD NEW STUDENT ---");
         Student s = new Student();
 
-        // Personal
+       
         System.out.print("Full Name: ");
         s.setFullName(scanner.nextLine());
         System.out.print("DOB (YYYY-MM-DD): ");
@@ -137,7 +135,7 @@ public class Main {
         System.out.print("College ID Card No: ");
         s.setCollegeIdCardNo(scanner.nextLine());
 
-        // Academic
+        
         AcademicDetails ad = new AcademicDetails();
         System.out.print("Course: ");
         ad.setCourse(scanner.nextLine());
@@ -153,7 +151,6 @@ public class Main {
         ad.setAcademicYear(scanner.nextLine());
         s.setAcademicDetails(ad);
 
-        // Fee
         FeeDetails fd = new FeeDetails();
         System.out.print("Total Fee: ");
         fd.setTotalFee(Double.parseDouble(scanner.nextLine()));
@@ -163,7 +160,7 @@ public class Main {
         fd.setFeeStatus(FeeDetails.FeeStatus.PENDING); // Default, logic calculates actual
         s.setFeeDetails(fd);
 
-        // Sports
+      
         SportsDetails sd = new SportsDetails();
         System.out.print("Sports Participant? (yes/no): ");
         String isSports = scanner.nextLine();
@@ -182,7 +179,7 @@ public class Main {
         }
         s.setSportsDetails(sd);
 
-        // Skills
+       
         SkillDetails sk = new SkillDetails();
         System.out.print("Programming Level (Beginner/Intermediate/Advanced): ");
         sk.setProgrammingLevel(scanner.nextLine());
@@ -235,7 +232,7 @@ public class Main {
             s.getFeeDetails().setPaidAmount(s.getFeeDetails().getPaidAmount() + amount);
             s.getFeeDetails().setLastPaymentDate("2024-12-17"); // Use actual date helper in real app
 
-            // Re-eval logic called in service
+            
             if (studentService.updateStudent(s))
                 System.out.println("Fee Updated.");
             else

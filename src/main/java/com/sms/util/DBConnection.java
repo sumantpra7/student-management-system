@@ -13,7 +13,7 @@ public class DBConnection {
     public static Connection getConnection() {
         try {
             if (connection == null || connection.isClosed()) {
-                // Load driver explicitly (sometimes needed for shade/fat jars, good practice)
+               
                 Class.forName("org.sqlite.JDBC");
                 connection = DriverManager.getConnection(URL);
                 System.out.println("Connected to database successfully.");
@@ -25,6 +25,6 @@ public class DBConnection {
         return connection;
     }
     
-    // Optional: method to initialize tables if they don't exist (can call schema.sql content)
-    // For now, we assume schema.sql is run externally or we can implement a runner later.
+   
+
 }
